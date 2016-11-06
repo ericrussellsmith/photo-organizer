@@ -20,13 +20,13 @@ public class PhotoPushMain
 		try
 		{
 			validator.validate(args, runConfig);
-			if("META".equals(runConfig.getProvider()))
+			if("JAI".equals(runConfig.getProvider()))
 			{
-				metapusher.push(runConfig);
+				pusher.push(runConfig);
 			}
 			else
 			{
-				pusher.push(runConfig);
+				metapusher.push(runConfig);
 			}
 		}
 		catch (InputValidationException e)

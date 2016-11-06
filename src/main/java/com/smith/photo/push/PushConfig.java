@@ -11,7 +11,7 @@ public class PushConfig
 	Path destinationFolder;
 	Path sourceFolder;
 	private Boolean overwrite = false;
-	private Boolean recurse = false;
+	private Boolean recurse = true;
 	private String provider;
 	private Date lastDate = new Date();
 

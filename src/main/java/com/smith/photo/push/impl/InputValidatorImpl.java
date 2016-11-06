@@ -32,8 +32,14 @@ public class InputValidatorImpl implements InputValidator
 		}
 		String sourceDirectory;
 		String destinationDirectory;
-
-		sourceDirectory = args[0];
+        if( "photos".equals(args[0]))
+        {
+	        sourceDirectory= System.getProperty("user.home") + "/Pictures/Photos Library.photoslibrary/Masters";
+        }
+		else
+        {
+	        sourceDirectory = args[0];
+        }
 		destinationDirectory = args[1];
 		if (args.length > 2)
 		{

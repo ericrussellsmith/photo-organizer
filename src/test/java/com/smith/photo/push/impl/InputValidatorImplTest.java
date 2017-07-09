@@ -1,7 +1,6 @@
 package com.smith.photo.push.impl;
 
 import com.smith.photo.push.InputValidationException;
-import com.smith.photo.push.impl.InputValidatorImpl;
 import junit.framework.TestCase;
 
 /**

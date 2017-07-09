@@ -110,7 +110,6 @@ public class MetaDataExtractorPusher implements Pusher
 				{
 					LOGGER.info("Add " + entry + " to process list");
 					PushConfig moreConfig = new PushConfig();
-					moreConfig.setProvider(config.getProvider());
 					moreConfig.setSourceFolder(entry);
 					moreConfig.setDestinationFolder(config.getDestinationFolder());
 					moreConfig.setOverwrite(config.getOverwrite());

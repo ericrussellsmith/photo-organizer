@@ -52,17 +52,6 @@ public class InputValidatorImpl implements InputValidator
 		{
 			inputConfig.setRecurse(Boolean.valueOf(args[3]));
 		}
-		if(args.length > 4)
-		{
-			if("JAI".equals(args[4]) || "META".equals(args[4]))
-			{
-				inputConfig.setProvider(args[4]);
-			}
-			else
-			{
-				throw new InputValidationException("provider must be JAI or META");
-			}
-		}
 
 		Path sourceFolder = Paths.get(sourceDirectory);
 		if (!checkDirectory(sourceFolder))

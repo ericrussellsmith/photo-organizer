@@ -3,6 +3,8 @@ package com.smith.photo.push.impl;
 import com.smith.photo.push.InputValidationException;
 import com.smith.photo.push.InputValidator;
 import com.smith.photo.push.PushConfig;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,6 +16,7 @@ import java.util.Date;
  */
 public class InputValidatorImpl implements InputValidator
 {
+	private final static Logger LOGGER = LogManager.getLogger(InputValidatorImpl.class);
 	private static boolean checkDirectory(Path directory)
 	{
 		return Files.exists(directory);
@@ -24,7 +27,7 @@ public class InputValidatorImpl implements InputValidator
 	{
 		if (inputConfig == null)
 		{
-			throw new InputValidationException("Mush initialize inputConfig reference");
+			throw new InputValidationException("Must initialize inputConfig reference");
 		}
 		if (args.length !=5 && args.length != 4 && args.length != 3 && args.length != 2)
 		{
@@ -71,7 +74,7 @@ public class InputValidatorImpl implements InputValidator
 		Path destinationFolder = Paths.get(destinationDirectory);
 		if (!checkDirectory(destinationFolder))
 		{
-			throw new InputValidationException("ERROR: destination folder does not exist: " + destinationFolder);
+			LOGGER.warn("I will create the destination folder: " + destinationDirectory);
 		}
 		inputConfig.setDestinationFolder(destinationFolder);
 		inputConfig.setLastDate(new Date());

@@ -2,12 +2,10 @@ package com.smith.photo.push;
 
 import com.smith.photo.push.impl.InputValidatorImpl;
 import com.smith.photo.push.impl.MetaDataExtractorPusher;
-import com.smith.photo.push.impl.PusherImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static java.lang.System.exit;
-import static java.lang.System.out;
 
 public class PhotoPushMain
 {
@@ -15,7 +13,6 @@ public class PhotoPushMain
 
 	static PushConfig runConfig = new PushConfig();
 	static InputValidator validator = new InputValidatorImpl();
-	static Pusher pusher = new PusherImpl();
 	static Pusher metapusher = new MetaDataExtractorPusher();
 
 	public static void main(String[] args)
@@ -23,14 +20,7 @@ public class PhotoPushMain
 		try
 		{
 			validator.validate(args, runConfig);
-			if("JAI".equals(runConfig.getProvider()))
-			{
-				pusher.push(runConfig);
-			}
-			else
-			{
-				metapusher.push(runConfig);
-			}
+			metapusher.push(runConfig);
 		}
 		catch (InputValidationException e)
 		{

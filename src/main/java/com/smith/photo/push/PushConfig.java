@@ -12,7 +12,6 @@ public class PushConfig
 	Path sourceFolder;
 	private Boolean overwrite = false;
 	private Boolean recurse = true;
-	private String provider;
 	private Date lastDate = new Date();
 
 	public Date getLastDate()
@@ -23,16 +22,6 @@ public class PushConfig
 	public void setLastDate(Date lastDate)
 	{
 		this.lastDate = lastDate;
-	}
-
-	public String getProvider()
-	{
-		return provider;
-	}
-
-	public void setProvider(String provider)
-	{
-		this.provider = provider;
 	}
 
 	public Boolean getOverwrite()
